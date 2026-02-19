@@ -1,0 +1,11 @@
+{
+  "name": "@inventory/db",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  }
+}

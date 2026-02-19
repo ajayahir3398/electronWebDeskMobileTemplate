@@ -1,0 +1,25 @@
+{
+  "name": "inventory-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "packageManager": "npm@10.9.4",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "dev:web": "turbo run dev --filter web",
+    "dev:desktop": "turbo run dev --filter @inventory/desktop",
+    "dev:mobile": "turbo run dev --filter @inventory/mobile",
+    "dev:mobile:android": "turbo run android --filter @inventory/mobile",
+    "dev:mobile:ios": "turbo run ios --filter @inventory/mobile",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+  },
+  "devDependencies": {
+    "turbo": "latest",
+    "prettier": "latest"
+  }
+}
