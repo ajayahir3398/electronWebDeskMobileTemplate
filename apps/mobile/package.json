@@ -6,6 +6,9 @@
     "dev": "react-native start",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
+    "build": "cd android && gradlew assembleRelease",
+    "build:android": "cd android && gradlew assembleRelease",
+    "build:ios": "cd ios && xcodebuild -workspace mobile.xcworkspace -scheme mobile -configuration Release",
     "lint": "eslint .",
     "start": "react-native start",
     "test": "jest"

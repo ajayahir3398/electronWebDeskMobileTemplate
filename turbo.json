@@ -3,7 +3,13 @@
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": ["dist/**", ".next/**", "!.next/cache/**"]
+      "outputs": ["dist/**", ".next/**", "!.next/cache/**", "out/**", "apps/mobile/android/app/build/outputs/**"]
+    },
+    "build:android": {
+        "cache": false
+    },
+    "build:ios": {
+        "cache": false
     },
     "lint": {},
     "dev": {

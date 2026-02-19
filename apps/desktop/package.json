@@ -1,6 +1,6 @@
 {
-  "name": "@inventory/desktop",
-  "productName": "inventory-app",
+  "name": "inventory-desktop",
+  "productName": "Inventory Desktop",
   "version": "1.0.0",
   "description": "My Electron application description",
   "main": ".webpack/main",
@@ -10,7 +10,9 @@
     "dev": "electron-forge start",
     "package": "electron-forge package",
     "make": "electron-forge make",
+    "build": "electron-forge make",
     "publish": "electron-forge publish",
+    "clean": "npx rimraf .webpack out",
     "lint": "eslint --ext .ts,.tsx ."
   },
   "keywords": [],

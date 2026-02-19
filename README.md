@@ -121,3 +121,67 @@ If you encounter the error `SDK location not found`, follow these steps to fix i
 
 8.  **Re-run the Android App**:
     - `npm run dev:mobile:android`
+
+## Production Build
+
+### Web Application
+
+To build the web application for production:
+
+```bash
+npm run build:web
+```
+
+The build artifacts will be in `apps/web/dist`.
+
+### Desktop Application
+
+To create a distributable desktop application (installer/executable):
+
+```bash
+npm run build:desktop
+```
+
+### Desktop: EPERM: operation not permitted
+
+If you encounter an `EPERM` error during the desktop build (e.g., `rename ... .webpack`), it usually means a file is locked by another process (like a running instance of the app or a terminal).
+
+1.  **Close all running instances** of the inventory app.
+2.  **Close any other terminals** that might be open in the `apps/desktop` directory.
+3.  Run the clean script:
+    ```bash
+    cd apps/desktop
+    npm run clean
+    cd ../..
+    ```
+4.  Retry the build:
+    ```bash
+    npm run build:desktop
+    ```
+
+The output will be in `apps/desktop/out`.
+
+### Mobile Application
+
+#### Android
+
+To build the release APK for Android:
+
+```bash
+npm run build:android
+```
+
+The APK will be generated at `apps/mobile/android/app/build/outputs/apk/release/app-release.apk`.
+
+> [!NOTE]
+> The current setup uses the default debug keystore for signing the release build. For a true production release, you must generate a private keystore and configure `signingConfigs` in `apps/mobile/android/app/build.gradle`.
+
+#### iOS (macOS only)
+
+To build the release app for iOS:
+
+```bash
+npm run build:ios
+```
+
+This commands requires Xcode and proper code signing certificates to be set up in the project.
