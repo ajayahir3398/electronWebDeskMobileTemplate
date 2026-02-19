@@ -1,11 +1,11 @@
-import type { Configuration } from 'webpack';
+import type { Configuration } from "webpack";
 
-import { rules } from './webpack.rules';
-import { plugins } from './webpack.plugins';
+import { rules } from "./webpack.rules";
+import { plugins } from "./webpack.plugins";
 
 rules.push({
   test: /\.css$/,
-  use: [{ loader: 'style-loader' }, { loader: 'css-loader' }],
+  use: [{ loader: "style-loader" }, { loader: "css-loader" }],
 });
 
 export const rendererConfig: Configuration = {
@@ -13,7 +13,9 @@ export const rendererConfig: Configuration = {
     rules,
   },
   plugins,
+  devtool:
+    process.env.NODE_ENV === "development" ? "eval-source-map" : "source-map",
   resolve: {
-    extensions: ['.js', '.ts', '.jsx', '.tsx', '.css'],
+    extensions: [".js", ".ts", ".jsx", ".tsx", ".css"],
   },
 };
